@@ -22,6 +22,7 @@
     "paths": {
       "@routes/*": ["src/routes/*"],
       "@templates/*": ["src/templates/*"],
+      "@tools/*": ["src/tools/*"],
     }
   }
 }

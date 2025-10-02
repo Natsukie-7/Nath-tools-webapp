@@ -1,6 +1,9 @@
-import { type DefaultTheme } from "solid-styled-components";
+import { type SystemTheme } from "@templates/Page/themes/constants";
+import { css } from "solid-styled-components";
 
-export const DarkTheme: DefaultTheme = {
-    pageColor: '#000000',
-    textColor: '#ffffff'
-}
+const ThemeValue: SystemTheme = {
+  "--page-color": "#000000",
+  "--text-color": "#ffffff",
+};
+
+export const DarkTheme = css(ThemeValue as any);

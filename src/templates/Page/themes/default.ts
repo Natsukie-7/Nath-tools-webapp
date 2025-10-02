@@ -1,6 +1,9 @@
-import { type DefaultTheme as DefaultThemeType } from "solid-styled-components";
+import { type SystemTheme } from "@templates/Page/themes/constants";
+import { css } from "solid-styled-components";
 
-export const DefaultTheme: DefaultThemeType = {
-    pageColor: '#ffffff',
-    textColor: '#000000'
-}
+const ThemeValue: SystemTheme = {
+  "--page-color": "#ffffff",
+  "--text-color": "#000000",
+};
+
+export const DefaultTheme = css(ThemeValue as any);

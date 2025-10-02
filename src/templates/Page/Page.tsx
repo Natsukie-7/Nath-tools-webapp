@@ -1,17 +1,28 @@
 import { Wrapper } from "@templates/Page/Page.styled";
-import { DefaultTheme } from "@templates/Page/themes";
-import { Component, createMemo, ParentComponent } from "solid-js";
-import { ThemeProvider } from "solid-styled-components";
+import {
+  ThemesContextProvider,
+  useThemeContext,
+} from "@templates/Page/themes.context";
+import { onCleanup, onMount, ParentComponent } from "solid-js";
 
 interface PageProps {}
 
 const Page: ParentComponent = (props) => {
-  const theme = createMemo(() => DefaultTheme)
-
   return (
-    <ThemeProvider theme={theme()}>
-      <Wrapper>{props.children}</Wrapper>
-    </ThemeProvider>
+    <ThemesContextProvider>
+      {(() => {
+        const [theme, { toggleTheme }] = useThemeContext();
+
+        /* onMount(() => {
+          const interval = setInterval(toggleTheme, 1000);
+          onCleanup(() => {
+            clearInterval(interval);
+          });
+        }); */
+
+        return <Wrapper class={theme()}>{props.children}</Wrapper>;
+      })()}
+    </ThemesContextProvider>
   );
 };
 
