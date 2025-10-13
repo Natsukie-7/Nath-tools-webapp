@@ -1,0 +1,6 @@
+{
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+}
