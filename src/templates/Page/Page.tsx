@@ -1,17 +1,18 @@
-import { Wrapper } from "@templates/Page/Page.styled";
-import { DefaultTheme } from "@templates/Page/themes";
-import { Component, createMemo, ParentComponent } from "solid-js";
-import { ThemeProvider } from "solid-styled-components";
+import { GlobalStyles, Wrapper } from "@templates/Page/Page.styled";
+import {
+  ThemesContextProvider,
+  useThemeContext,
+} from "@tools/themes/themes.context";
+import { onCleanup, onMount, ParentComponent } from "solid-js";
 
 interface PageProps {}
 
 const Page: ParentComponent = (props) => {
-  const theme = createMemo(() => DefaultTheme)
-
   return (
-    <ThemeProvider theme={theme()}>
-      <Wrapper>{props.children}</Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <GlobalStyles />
+      {props.children}
+    </Wrapper>
   );
 };
 

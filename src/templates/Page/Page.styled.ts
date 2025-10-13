@@ -1,10 +1,18 @@
-import { styled } from "solid-styled-components";
+import { createGlobalStyles, styled } from "solid-styled-components";
 
-export const Wrapper = styled('div')`
-    :root {
-        --page-color: ${({ theme }) => theme?.pageColor};
-        --text-color: ${({ theme }) => theme?.textColor};
-    }
+export const GlobalStyles = createGlobalStyles`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--page-color);
+    color: var(--text-color);
+  }
 `;
 
-export const Header = styled('header')``;
+export const Wrapper = styled("div")``;
+
+export const Header = styled("header")``;
