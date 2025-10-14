@@ -5,21 +5,24 @@ import { createMemo, createSignal } from "solid-js";
 import { SystemKeysThemes } from "./constants";
 
 const factory = () => {
-  const [currentTheme, setCurrentTheme] =
-    createSignal<SystemKeysThemes>("dark");
+  const [currentTheme, setCurrentTheme] = createSignal<SystemKeysThemes>(
+    getInitialTheme()
+  );
 
   const toggleTheme = (theme?: SystemKeysThemes) =>
     setCurrentTheme((prev) => {
-      if (theme) {
-        return theme;
-      }
-
       const keys = Object.keys(SystemThemes) as SystemKeysThemes[];
 
-      const currentIndex = keys.indexOf(prev);
-      const nextIndex = (currentIndex + 1) % keys.length;
+      const newTheme =
+        theme && keys.includes(theme)
+          ? theme
+          : keys[(keys.indexOf(prev) + 1) % keys.length];
 
-      return keys[nextIndex];
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("theme", newTheme);
+      }
+
+      return newTheme;
     });
 
   const theme = createMemo(() => SystemThemes[currentTheme()]);
@@ -64,3 +67,21 @@ export const [ThemesContextProvider, useThemeContext] =
 function camelToCssVariable(key: string) {
   return "--" + key.replace(/([A-Z])/g, "-$1").toLowerCase();
 }
+
+const getInitialTheme = (): SystemKeysThemes => {
+  if (typeof localStorage !== "undefined") {
+    const stored = localStorage.getItem("theme") as SystemKeysThemes | null;
+    if (stored && Object.keys(SystemThemes).includes(stored)) {
+      return stored;
+    }
+  }
+
+  if (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    return "dark";
+  }
+
+  return "light";
+};
