@@ -1,20 +1,20 @@
-import { SystemThemes } from "@tools/themes";
 import { createEffectOn } from "@tools/createEffectOn";
 import createSafeContextProvider from "@tools/createSafeContextProvider";
+import { SystemThemes } from "@tools/themes";
 import { createMemo, createSignal } from "solid-js";
-
-type KeyTheme = keyof typeof SystemThemes;
+import { SystemKeysThemes } from "./constants";
 
 const factory = () => {
-  const [currentTheme, setCurrentTheme] = createSignal<KeyTheme>("dark");
+  const [currentTheme, setCurrentTheme] =
+    createSignal<SystemKeysThemes>("dark");
 
-  const toggleTheme = (theme?: KeyTheme) =>
+  const toggleTheme = (theme?: SystemKeysThemes) =>
     setCurrentTheme((prev) => {
       if (theme) {
         return theme;
       }
 
-      const keys = Object.keys(SystemThemes) as KeyTheme[];
+      const keys = Object.keys(SystemThemes) as SystemKeysThemes[];
 
       const currentIndex = keys.indexOf(prev);
       const nextIndex = (currentIndex + 1) % keys.length;

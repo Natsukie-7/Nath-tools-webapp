@@ -18,9 +18,13 @@
     "vite-plugin-solid": "^2.11.8"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "@solid-primitives/context": "^0.3.2",
+    "@solid-primitives/i18n": "^2.2.1",
     "@solidjs/router": "^0.15.3",
     "solid-js": "^1.9.5",
-    "solid-styled-components": "^0.28.5"
+    "solid-popper": "^0.3.0",
+    "solid-styled-components": "^0.28.5",
+    "tippy.js": "^6.3.7"
   }
 }

@@ -1,18 +1,19 @@
+import Navbar from "@templates/Page/Navbar/Navbar";
 import { GlobalStyles, Wrapper } from "@templates/Page/Page.styled";
-import {
-  ThemesContextProvider,
-  useThemeContext,
-} from "@tools/themes/themes.context";
-import { onCleanup, onMount, ParentComponent } from "solid-js";
+import { ParentComponent } from "solid-js";
 
 interface PageProps {}
 
 const Page: ParentComponent = (props) => {
   return (
-    <Wrapper>
+    <>
       <GlobalStyles />
-      {props.children}
-    </Wrapper>
+
+      <Wrapper>
+        <Navbar />
+        {props.children}
+      </Wrapper>
+    </>
   );
 };
 

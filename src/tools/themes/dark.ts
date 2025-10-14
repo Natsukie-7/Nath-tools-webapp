@@ -1,9 +1,11 @@
 import { type SystemTheme } from "@tools/themes/constants";
-import { css } from "solid-styled-components";
 
 const ThemeValue: SystemTheme = {
   pageColor: "#000000",
   textColor: "#ffffff",
+
+  menuColor: "#121212",
+  menuHoverColor: "#1e1e1e",
 };
 
 export const DarkTheme = ThemeValue;
