@@ -12,6 +12,7 @@
   "license": "MIT",
   "devDependencies": {
     "@locator/babel-jsx": "^0.4.4",
+    "@locator/runtime": "^0.4.4",
     "@types/node": "^24.5.2",
     "locatorjs": "^0.4.2",
     "solid-devtools": "^0.34.3",

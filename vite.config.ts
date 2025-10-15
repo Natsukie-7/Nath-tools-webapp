@@ -4,7 +4,21 @@ import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
 
 export default defineConfig({
-  plugins: [devtools(), solidPlugin()],
+  plugins: [
+    devtools(),
+    solidPlugin({
+      babel: {
+        plugins: [
+          [
+            "@locator/babel-jsx/dist",
+            {
+              env: "development",
+            },
+          ],
+        ],
+      },
+    }),
+  ],
   server: {
     port: 3000,
   },

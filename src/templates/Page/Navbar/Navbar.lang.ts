@@ -20,17 +20,17 @@ type NavbarDict = {
 
 const PortugueseDict: NavbarDict = {
   home: "Página inicial",
-  document: "documento",
+  document: "Documentos",
   cep: "CEP",
 };
 const EnglishDict: NavbarDict = {
   home: "home",
-  document: "document",
+  document: "Document",
   cep: "Brasilian CEP",
 };
 const EspanholDict: NavbarDict = {
   home: "inicio",
-  document: "documento",
+  document: "Documentos",
   cep: "CP",
 };
 const JaponiseDict: NavbarDict = {
