@@ -6,6 +6,7 @@ export interface SystemTheme {
 
   menuColor: string;
   menuHoverColor: string;
+  menuBorderColor: string;
 }
 
 export type SystemKeysThemes = keyof typeof SystemThemes;

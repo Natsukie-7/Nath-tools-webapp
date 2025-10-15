@@ -13,7 +13,7 @@ const Home: Component<HomeProps> = (props) => {
         toggleTheme();
       }}
     >
-      Home
+      <h1>Bem vindo</h1>
     </Wrapper>
   );
 };

@@ -6,6 +6,7 @@ const ThemeValue: SystemTheme = {
 
   menuColor: "#121212",
   menuHoverColor: "#1e1e1e",
+  menuBorderColor: "#2c2c2c",
 };
 
 export const DarkTheme = ThemeValue;

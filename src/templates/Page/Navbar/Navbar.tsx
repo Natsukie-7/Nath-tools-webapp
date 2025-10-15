@@ -1,5 +1,4 @@
 import { Component } from "solid-js";
-import LanguageToggler from "./LanguageToggler/LanguageToggler";
 import getNavbarTranslator from "./Navbar.lang";
 import {
   ToolsLink,
@@ -7,7 +6,6 @@ import {
   ToolsLinkWrapper,
   Wrapper,
 } from "./Navbar.styled";
-import ThemeToggler from "./ThemeToggler/ThemeToggler";
 
 interface NavbarProps {}
 
@@ -18,7 +16,7 @@ const Navbar: Component<NavbarProps> = (props) => {
     <Wrapper>
       <ToolsLinkWrapper>
         <ToolsLinkItem>
-          <ToolsLink href="/">Nath tools</ToolsLink>
+          <ToolsLink href="/">{t("home")}</ToolsLink>
         </ToolsLinkItem>
 
         <ToolsLinkItem>
@@ -29,8 +27,6 @@ const Navbar: Component<NavbarProps> = (props) => {
           <ToolsLink href="/cep">{t("cep")}</ToolsLink>
         </ToolsLinkItem>
       </ToolsLinkWrapper>
-      <ThemeToggler />
-      <LanguageToggler />
     </Wrapper>
   );
 };

@@ -1,6 +1,11 @@
-import Navbar from "@templates/Page/Navbar/Navbar";
-import { GlobalStyles, Wrapper } from "@templates/Page/Page.styled";
+import {
+  GlobalStyles,
+  MountContet,
+  Wrapper,
+} from "@templates/Page/Page.styled";
 import { ParentComponent } from "solid-js";
+import Header from "./Header/Header";
+import Navbar from "./Navbar/Navbar";
 
 interface PageProps {}
 
@@ -10,8 +15,10 @@ const Page: ParentComponent = (props) => {
       <GlobalStyles />
 
       <Wrapper>
+        <Header />
         <Navbar />
-        {props.children}
+
+        <MountContet>{props.children}</MountContet>
       </Wrapper>
     </>
   );
