@@ -1,10 +1,24 @@
+import path from "path";
+import devtools from "solid-devtools/vite";
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
-import devtools from "solid-devtools/vite";
-import path from "path";
 
 export default defineConfig({
-  plugins: [devtools(), solidPlugin()],
+  plugins: [
+    devtools(),
+    solidPlugin({
+      babel: {
+        plugins: [
+          [
+            "@locator/babel-jsx/dist",
+            {
+              env: "development",
+            },
+          ],
+        ],
+      },
+    }),
+  ],
   server: {
     port: 3000,
   },
@@ -16,6 +30,8 @@ export default defineConfig({
       "@routes": path.resolve(__dirname, "src/routes"),
       "@templates": path.resolve(__dirname, "src/templates"),
       "@tools": path.resolve(__dirname, "src/tools"),
+      "@icons": path.resolve(__dirname, "src/components/icons"),
+      "@components": path.resolve(__dirname, "src/components"),
     },
   },
 });

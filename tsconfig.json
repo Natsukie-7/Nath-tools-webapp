@@ -23,6 +23,8 @@
       "@routes/*": ["src/routes/*"],
       "@templates/*": ["src/templates/*"],
       "@tools/*": ["src/tools/*"],
+      "@icons/*": ["src/components/icons/*"],
+      "@components/*": ["src/components/*"],
     }
   }
 }
