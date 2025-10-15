@@ -3,6 +3,10 @@
     {
       "src": "/document",
       "dest": "/index.html"
+    },
+    {
+      "src": "/cep",
+      "dest": "/index.html"
     }
   ],
   "cleanUrls": true,
